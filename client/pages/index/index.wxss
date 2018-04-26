@@ -1,0 +1,97 @@
+/* pages/index/index.wxss */
+page{
+  height: 100%;
+  width: 100%;
+  background-color:#F5F5F5;
+}
+.main{
+}
+.swiper{
+  width: 100%;
+  height: 350rpx;
+}
+.slide-image{
+  width:100%;
+  height: 100%;
+}
+.column{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+ 
+}
+.profession{
+  flex-direction:colunmn;
+   margin:20rpx 0rpx 20rpx 70rpx; 
+   
+}
+.image-info image{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.text-info{
+  font-size: 22rpx;
+  text-align: center;
+}
+.hr{
+  margin:30rpx;
+}
+.block{
+  background-color: white;
+}
+.top5{
+display: flex;
+flex-direction: row;
+padding: 20rpx 0  20rpx 70rpx;
+height: 50rpx;
+}
+.title1{
+  font-weight: bold;
+  font-size: 30rpx;
+  line-height: 50rpx;
+}
+.icon_font{
+  font-weight: bold;
+  position: absolute;
+  right: 30rpx;  
+  line-height: 50rpx;
+}
+.box2{
+  padding-top:20rpx;
+  padding-bottom: 15rpx;
+}
+.list{
+  padding: 30rpx 0  30rpx 70rpx;
+  font-size: 35rpx;
+  line-height: 35rpx;
+  display: flex;
+  flex-direction: row;
+}
+.hr2{
+  border: 2px solid #F5F5F5;
+}
+.tilte3{
+  width:560rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.enter{
+   border: 1px solid #585eaa;
+   border-radius: 10px;
+   font-size: 25rpx;
+   line-height: 25rpx;
+   padding:10rpx 10rpx 10rpx 10rpx;
+   margin-top: -5rpx;
+   position: absolute;
+   right: 30rpx;
+}
+.list:active{
+            opacity: 1;
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+            box-shadow: 0 0 10px 2px rgba(0,0,0,.4);
+  
+}
