@@ -1,97 +1,142 @@
 /* pages/index/index.wxss */
-page{
+
+page {
   height: 100%;
   width: 100%;
-  background-color:#F5F5F5;
-}
-.main{
-}
-.swiper{
-  width: 100%;
-  height: 350rpx;
-}
-.slide-image{
-  width:100%;
-  height: 100%;
-}
-.column{
-  display: flex;
-  flex-direction: row;
-  background-color: white;
- 
-}
-.profession{
-  flex-direction:colunmn;
-   margin:20rpx 0rpx 20rpx 70rpx; 
-   
-}
-.image-info image{
-  width: 100rpx;
-  height: 100rpx;
+  background-color: #f5f5f5;
 }
 
-.text-info{
-  font-size: 22rpx;
+/*轮播图*/
+.swiper {
+  width: 100%;
+  height: 500rpx;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+/*八大职业*/
+.box {
+  margin-top: 20rpx;
+}
+.profession {
+  width: 25%;
+  float: left;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.box {
+  overflow: hidden;
+  background-color: #fff;
+}
+.image-info image {
+  width: 100rpx;
+  margin: 0 auto;
+  height: 100rpx;
+  display: block;
+}
+.text-info {
+  font-size: 28rpx;
   text-align: center;
 }
-.hr{
-  margin:30rpx;
-}
-.block{
+
+/*分割线*/
+
+.block {
   background-color: white;
+  padding-bottom: 20rpx;
+  margin-top: 30rpx;
 }
-.top5{
-display: flex;
-flex-direction: row;
-padding: 20rpx 0  20rpx 70rpx;
-height: 50rpx;
+
+/*内推top5*/
+
+.top5 {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 47.5rpx;
+  height: 50rpx;
+  border-bottom: 1px solid #f5f5f5;
 }
-.title1{
-  font-weight: bold;
+
+.title_image {
+  height: 45rpx;
+  width: 45rpx;
+  padding-right: 10rpx;
+}
+
+.title1 {
+  font-weight: 580;
+  font-size: 32rpx;
+  line-height: 40rpx;
+}
+
+.box2 {
+  padding: 0 47.5rpx 10rpx 47.5rpx;
+}
+
+.list {
+  padding: 30rpx 0rpx 30rpx 0rpx;
   font-size: 30rpx;
-  line-height: 50rpx;
-}
-.icon_font{
-  font-weight: bold;
-  position: absolute;
-  right: 30rpx;  
-  line-height: 50rpx;
-}
-.box2{
-  padding-top:20rpx;
-  padding-bottom: 15rpx;
-}
-.list{
-  padding: 30rpx 0  30rpx 70rpx;
-  font-size: 35rpx;
   line-height: 35rpx;
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid #eee;
 }
-.hr2{
-  border: 2px solid #F5F5F5;
-}
-.tilte3{
-  width:560rpx;
+
+.tilte3 {
+  width: 670rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 32rpx;
 }
-.enter{
-   border: 1px solid #585eaa;
-   border-radius: 10px;
-   font-size: 25rpx;
-   line-height: 25rpx;
-   padding:10rpx 10rpx 10rpx 10rpx;
-   margin-top: -5rpx;
-   position: absolute;
-   right: 30rpx;
+
+.block2 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+  border-top:1rpx solid tranparent;
 }
-.list:active{
-            opacity: 1;
-            -webkit-transform: scale(1.1);
-            -ms-transform: scale(1.1);
-            transform: scale(1.1);
-            box-shadow: 0 0 10px 2px rgba(0,0,0,.4);
-  
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 300rpx;
+  height: 100%;
+  background-color: #fff;
+  color: #000;
+  padding-top: 20rpx;
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+  box-shadow: 1px 1px 3px #999;
+}
+
+.card_image_info image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+.card_text_info {
+  font-size: 28rpx;
+  text-align: center;
+  padding: 10rpx 0rpx;
+}
+
+/*进入图标*/
+
+.nav-top5 :active {
+  opacity: 1;
+  transform: scale(0.9);
+}
+.ind{
+  margin-right:20rpx;
+}
+.navclass{
+  opacity: 0.7;
+  background-color: transparent;
 }

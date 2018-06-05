@@ -1,11 +1,29 @@
-module.exports = async (ctx, next) => {
-    // 通过 Koa 中间件进行登录态校验之后
-    // 登录信息会被存储到 ctx.state.$wxInfo
-    // 具体查看：
-    if (ctx.state.$wxInfo.loginState === 1) {
-        // loginState 为 1，登录态校验成功
-        ctx.state.data = ctx.state.$wxInfo.userinfo
-    } else {
-        ctx.state.code = -1
-    }
+const { mysql } = require('../qcloud')
+
+const user = {}
+
+user.addUser = async ctx => {
+  const { users } = ctx.request.body;
+  const { nickName, avatarUrl, gender } = users;
+  const queryResult = await mysql("user").where({ nickName }).select("*")
+
+  if (!queryResult.length) {
+    ctx.state.data = await mysql("user").insert({ nickName, avatarUrl, gender })
+  }
+  
+  ctx.state.data = queryResult
 }
+user.getUserInfo = async ctx => {
+  const { nickName } = ctx.query
+  const userInfo = await mysql("user").where({ nickName }).select("*")
+
+  ctx.state.data = userInfo && userInfo[0]
+}
+
+user.changeName = async ctx => {
+  const {  phone,name,userInfo } = ctx.request.body;
+  const {nickName}=userInfo;
+  ctx.state.data = await mysql("user").where({ nickName }).update({phone,name});
+}
+
+module.exports = user

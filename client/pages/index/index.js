@@ -1,90 +1,73 @@
-// pages/index/index.js
-const config=require("../../config.js")
-Page({
+// index page
+const config = require("../../config.js")
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
     imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+      './../../images/banner2.jpg',
+      './../../images/banner1.jpg',
+      './../../images/banner3.jpg'
     ],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 3000,
-    duration: 1000
-  
+    hotArticles: [],
+    hotJobs: [],
+    industries: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-      wx.request({
-        url:config.service.professionUrl,
-        success:function(ctx){
-          console.log(ctx);
-        },
-        fail:function(){
-
-        }
-      })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-  toDetail:function(){
-    wx.navigateTo({
-      url: '../Career_details/Career_details',
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      mask:true,
     })
+    wx.request({
+      url: config.service.directionUrl,
+      success: function (res) {
+        wx.hideLoading();
+        that.setData({
+          industries: res.data.data
+        })
+      }
+    })
+    this.getHotArticle()
+    this.getHotApply()
+  },
+  onReady: function () {
+   
+  },
+  // 获取热门帖子
+  getHotArticle: function () {
+    const that = this
 
-  }
+    wx.request({
+      url: config.service.getHotArticleUrl,
+      success: function (res) {
+        that.setData({
+          hotArticles: res.data.data
+        })
+      }
+    })
+  },
+  // 获取热门内推
+  getHotApply: function () {
+    const that = this
+
+    wx.request({
+      url: config.service.getHotApplyListUrl,
+      success: function (res) {
+        that.setData({
+          hotJobs: res.data.data
+        })
+      }
+    })
+  },
+  // 跳转到热门内推
+  navigateTOHot:function(){
+    
+  },
+  /**
+  * 生命周期函数--监听页面显示
+  */
+  onShow: function () {
+
+  },
 })
